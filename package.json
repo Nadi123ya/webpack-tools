@@ -1,0 +1,32 @@
+{
+  "name": "webpack-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "build:styles": "node_modules/.bin/sass lesson1/task1/src/styles/index.scss lesson1/task1/dist/styles.css ",
+    "copy:html": "cp lesson1/task1/src/index.html lesson1/task1/dist/index.html",
+    "copy:scripts": "cp -R lesson1/task1/src/scripts lesson1/task1/dist/scripts",
+    "clean": "rm -rf lesson1/task1/dist",
+    "build": "npm-run-all clean build:styles copy:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nadi123ya/webpack-tools.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nadi123ya/webpack-tools/issues"
+  },
+  "homepage": "https://github.com/Nadi123ya/webpack-tools#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.18.10",
+    "jest": "^29.0.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.54.5"
+  }
+}
