@@ -1,11 +1,11 @@
-// file path: /polyfills/array-flat.js
+// file path: /polyfills/array-flatMap.js
 
 // здесь никакие экспорты не нужны
 
-console.log('polyfill for flat');
+console.log('polyfill for flatMap');
 
-window.Array.prototype.flat =
-  Array.prototype.flat ||
-  function flat() {
+window.Array.prototype.flatMap =
+  Array.prototype.flatMap ||
+  function flatMap() {
     // ... implementation for older browsers
   };
