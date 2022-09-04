@@ -1,28 +1,28 @@
-import { getTasksList } from "./taskGateway.js";
-import '../styles.scss'
+import { getTasksList } from './taskGateway';
+import '../styles.scss';
 
-const listElem = document.querySelector(".list");
+const listElem = document.querySelector('.list');
 
 const compareTasks = (a, b) => a.done - b.done;
 
 const createListItem = ({ text, done, id }) => {
-  const listItemElem = document.createElement("li");
-  listItemElem.classList.add("list-item");
-  const checkbox = document.createElement("input");
-  checkbox.setAttribute("type", "checkbox");
+  const listItemElem = document.createElement('li');
+  listItemElem.classList.add('list-item');
+  const checkbox = document.createElement('input');
+  checkbox.setAttribute('type', 'checkbox');
   checkbox.dataset.id = Number(id);
   checkbox.checked = done;
-  checkbox.classList.add("list-item__checkbox");
+  checkbox.classList.add('list-item__checkbox');
   if (done) {
-    listItemElem.classList.add("list-item_done");
+    listItemElem.classList.add('list-item_done');
   }
 
-  const createText = document.createElement("span");
-  createText.classList.add("list-item__text");
+  const createText = document.createElement('span');
+  createText.classList.add('list-item__text');
   createText.textContent = text;
 
-  const deleteBtn = document.createElement("button");
-  deleteBtn.classList.add("list-item__delete-btn");
+  const deleteBtn = document.createElement('button');
+  deleteBtn.classList.add('list-item__delete-btn');
 
   listItemElem.append(checkbox, createText, deleteBtn);
   listItemElem.dataset.id = Number(id);
@@ -31,7 +31,7 @@ const createListItem = ({ text, done, id }) => {
 
 export const renderTasks = () => {
   getTasksList().then((tasksList) => {
-    listElem.innerHTML = "";
+    listElem.innerHTML = '';
     const tasksElems = tasksList.slice().sort(compareTasks).map(createListItem);
     listElem.append(...tasksElems);
   });
